@@ -69,12 +69,12 @@ def fetch_and_process_data():
         combined_data = pd.concat([master_data, new_data]).drop_duplicates().reset_index(drop=True)
         combined_data.to_csv(MASTER_FILE, index=False, sep=";", encoding="ISO-8859-1")
 
-        # print(f"New data fetched and appended at {current_datetime}")
+        print(f"New data fetched and appended at {current_datetime}")
         logging.info(f"New data appended successfully to master file.")
     except requests.exceptions.RequestException as e:
         logging.error(f"HTTP request error: {e}")
     except Exception as e:
-        # print(f"Error occurred: {e}")
+        print(f"Error occurred: {e}")
         logging.error(f"An error occurred: {e}")
 
 
